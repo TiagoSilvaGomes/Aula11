@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section 
+
+    <form action="{% url 'consulta' %}", method="post">
+         {% csrf_token %}
+         {{ form }} 
+        <input type = "submit" value="Enviar" class="btn btn-sucess">
+     </form>
+</section>     
+{% endblock %}
