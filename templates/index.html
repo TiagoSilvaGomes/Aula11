@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{%block content %}
+{% block content %}
 {% load widget_tweaks %}
 
 <section class="container col-6">
     <h1 class="text-primary">Viagens com Desconto!</h1>
     <form action="{% url 'consulta' %}" , method="post">
         {% csrf_token%}
-        {%for field in form.visible_fields%}
+        {% for field in form.visible_fields %}
         <div class="form-group">
             <label for="{{fielf.id_for_label}}">{{field.label}}</label>
             {{field| add_class:'form-control'}}
@@ -17,6 +17,12 @@
         {{ field.errors}}
         </section>
         {% endfor %}
+        {% endfor %}
+        {% for field in pessoa_form.visible_fields %}
+        <div class="form-group">
+            <label for="{{fielf.id_for_label}}">{{field.label}}</label>
+            {{field| add_class:'form-control'}}
+        </div>
         {% endfor %}
         <input type="submit" value="Enviar" class="btn btn-success">
     </form>
